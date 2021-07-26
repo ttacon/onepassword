@@ -1,0 +1,29 @@
+# ope
+[general]
+name = "ope"
+description = "1password events exploration CLI"
+generator = "github.com/urfave/cli"
+
+[[command]]
+name = "introspect"
+aliases = [ "i" ]
+description = "Introspect the provided token"
+action = "introspectFunc"
+
+[[command]]
+name = "logins"
+aliases = [ "l" ]
+description = "Retrieve logins"
+action = "loginFunc"
+
+
+[[command.flags]]
+name = "start-time"
+aliases = [ "start" ]
+description = "Start time to retrieve logins from"
+
+[[command]]
+name = "item-usage-report"
+aliases = [ "iur" ]
+description = "Retrieve item usages"
+action = "itemUsageFunc"
