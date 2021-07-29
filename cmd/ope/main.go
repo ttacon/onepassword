@@ -17,20 +17,20 @@ func main() {
 	app.Usage = "1password events exploration CLI"
 
 	app.Commands = []*cli.Command{
-		&cli.Command{
+		{
 			Name:        "introspect",
 			Description: "Introspect the provided token",
 			Action:      introspectFunc,
 			Aliases:     []string{"i"},
 		},
-		&cli.Command{
+		{
 			Action:      loginFunc,
 			Description: "Retrieve logins",
 			Name:        "logins",
 			Aliases:     []string{"l"},
 			Flags:       []cli.Flag{},
 		},
-		&cli.Command{
+		{
 			Action:      itemUsageFunc,
 			Name:        "item-usage-report",
 			Description: "Retrieve item usages",
