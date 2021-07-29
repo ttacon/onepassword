@@ -15,7 +15,7 @@ import (
 func getClient() (onepassword.Client, error) {
 	token := os.Getenv("ONEPASS_TOKEN")
 	if len(token) == 0 {
-		return nil, errors.New("no authtentication token proided")
+		return nil, errors.New("no authentication token provided")
 	}
 
 	client, err := onepassword.NewHTTPClient(
@@ -77,7 +77,7 @@ func itemUsageFunc(c *cli.Context) error {
 		"User",
 		"ClientInfo",
 	})
-	tw.SetTitle("Item usgae report")
+	tw.SetTitle("Item usage report")
 
 	for {
 		resp, err := client.Service().GetItemUsages(resetCursor, currCursor)
