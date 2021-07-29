@@ -1,16 +1,26 @@
 name: Licensed
 
 on:
-  push: {branches: main}
-  pull_request: {branches: main}
+  push:
+    paths-ignore:
+      - "docs/**"
+    branches: [ main ]
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+    branches: [ main ]
+
 
 jobs:
   test:
     runs-on: ubuntu-latest
     name: Check licenses
     steps:
+      - uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go-version }}
+
       - uses: actions/checkout@v2
-      - run: npm ci
       - name: Install licensed
         run: |
           cd $RUNNER_TEMP
